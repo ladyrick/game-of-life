@@ -1,0 +1,71 @@
+
+table#grid {
+    border-collapse: collapse;
+    /*border-spacing: 1px;*/
+}
+
+#grid td {
+    width: 4px;
+    height: 4px;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+#grid tr {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+#grid {
+    border: solid 2px #5b5b5b;
+    margin: 0 auto;
+}
+
+#grid td.gray {
+    background-color: #5b5b5b;
+}
+
+#grid td.white {
+    background-color: #ffffff;
+}
+
+#down {
+    position: absolute;
+    left: 50%;
+    width: 520px;
+    margin-left: -260px;
+}
+
+#down div {
+    float: left;
+    margin:20px 20px;
+}
+
+.button {
+    width: 100px;
+}
+
+.button p {
+    font-size: 14px;
+    border: 2px solid;
+    border-radius: 5px;
+    background-color: beige;
+    text-align: center;
+    line-height: 30px;
+    overflow: hidden;
+    margin:0;
+}
+
+.button a {
+    text-decoration: none;
+}
+
+#down .selector select {
+    font-size: 14px;
+    border: 2px solid;
+    border-radius: 5px;
+    height: 34px;
+    width: 200px;
+}
