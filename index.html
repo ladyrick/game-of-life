@@ -15,7 +15,7 @@
             for (var i = 0; i < height; i++) {
                 document.write("<tr>\n");
                 for (var j = 0; j < width; j++) {
-                    document.write("<td id='tr" + i + "td" + j + "' class='white' onclick=click(" + i + "," + j + ")></td>\n");
+                    document.write("<td id='tr" + i + "td" + j + "' class='white' onclick=clickFunc(" + i + "," + j + ")></td>\n");
                 }
                 document.write("</tr>\n");
             }
@@ -25,18 +25,19 @@
     </table>
     <div id="down">
         <div class="selector">
-            <!--<form>-->
-            <select id="pattern">
-                <option value="Gosper_glider_gun">Gosper glider gun</option>
-                <option value="New_gun_1">New gun 1</option>
-                <option value="New_gun_2">New gun 2</option>
-            </select>
-            <!--</form>-->
+            <form>
+                <select id="pattern">
+                    <script>
+                        for (var i = 0; i < patternList.length; i++)
+                            document.write('<option value="' + patternList[i][0] + '">' + patternList[i][1] + '</option>');
+                    </script>
+                </select>
+            </form>
         </div>
         <div id="place" class="button">
             <a href="javascript:void(0);">
-                <p onclick="switchPlaceMode()">
-                    place
+                <p id="mode" onclick="switchPlaceMode()">
+                    place mode
                 </p>
             </a>
         </div>

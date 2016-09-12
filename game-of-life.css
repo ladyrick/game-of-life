@@ -40,11 +40,11 @@ table#grid {
 
 #down div {
     float: left;
-    margin:20px 20px;
+    margin: 16px 16px;
 }
 
 .button {
-    width: 100px;
+    width: 112px;
 }
 
 .button p {
@@ -55,7 +55,7 @@ table#grid {
     text-align: center;
     line-height: 30px;
     overflow: hidden;
-    margin:0;
+    margin: 0;
 }
 
 .button a {
@@ -63,7 +63,7 @@ table#grid {
     color: #0000ee;
 }
 
-.button a:hover{
+.button a:hover {
     color: #ff6600;
 }
 
