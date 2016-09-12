@@ -15,7 +15,7 @@
             for (var i = 0; i < height; i++) {
                 document.write("<tr>\n");
                 for (var j = 0; j < width; j++) {
-                    document.write("<td id='tr" + i + "td" + j + "' class='white' onclick=inverse(" + i + "," + j + ")></td>\n");
+                    document.write("<td id='tr" + i + "td" + j + "' class='white' onclick=click(" + i + "," + j + ")></td>\n");
                 }
                 document.write("</tr>\n");
             }
@@ -33,14 +33,14 @@
             </select>
             <!--</form>-->
         </div>
-        <div class="button">
+        <div id="place" class="button">
             <a href="javascript:void(0);">
-                <p onclick="setInterval('grow()', 100)">
+                <p onclick="switchPlaceMode()">
                     place
                 </p>
             </a>
         </div>
-        <div class="button">
+        <div id="start" class="button">
             <a href="javascript:void(0);">
                 <p onclick="setInterval('grow()', 100)">
                     start

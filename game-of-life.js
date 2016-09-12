@@ -3,6 +3,8 @@ var width = 200;
 var height = 100;
 var state = new Int8Array(width * height);
 var prepareToChange = new Int8Array(width * height);
+var placeMode = false;
+var selectedPattern;
 
 function Pattern(RLE) {
     this.RLE = RLE;
@@ -75,16 +77,6 @@ function Pattern(RLE) {
     }
 }
 
-function initGrid(pattern) {
-    var points = pattern.getPoints();
-    for (var i = 0; i < points.length; i++) {
-        var x = points[i][0] + 10;
-        var y = points[i][1] + 10;
-        state[x * width + y] = 1;
-        document.getElementById("tr" + x + "td" + y).setAttribute('class', 'gray');
-    }
-}
-
 function inverse(i, j) {
     var e = document.getElementById("tr" + i + "td" + j);
     if (state[i * width + j] === 1) {
@@ -95,6 +87,27 @@ function inverse(i, j) {
         e.setAttribute('class', 'gray');
         state[i * width + j] = 1;
     }
+}
+
+function placePattern(posX, posY, pattern) {
+    var points = pattern.getPoints();
+    for (var i = 0; i < points.length; i++) {
+        var x = points[i][0] + posX;
+        var y = points[i][1] + posY;
+        state[x * width + y] = 1;
+        document.getElementById("tr" + x + "td" + y).setAttribute('class', 'gray');
+    }
+}
+
+function click(i, j) {
+    if (placeMode)
+        placePattern(i, j);
+    else
+        inverse(i, j);
+}
+
+function initGrid(pattern) {
+    placePattern(10,10,pattern);
 }
 
 function isAlive(i, j) {
@@ -153,6 +166,17 @@ function grow() {
                 prepareToChange[i * width + j] = 0;
             }
         }
+    }
+}
+
+function switchPlaceMode() {
+    if (!placeMode) {
+        placeMode = true;
+        document.getElementById("place").getElementsByTagName('a')[0].style.color = "#f60";
+    }
+    else {
+        placeMode = false;
+        document.getElementById("place").getElementsByTagName('a')[0].style.color = "";
     }
 }
 

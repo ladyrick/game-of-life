@@ -60,6 +60,11 @@ table#grid {
 
 .button a {
     text-decoration: none;
+    color: #0000ee;
+}
+
+.button a:hover{
+    color: #ff6600;
 }
 
 #down .selector select {
