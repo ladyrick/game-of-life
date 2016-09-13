@@ -86,6 +86,14 @@ function placePattern(posX, posY, pattern) {
     for (var i = 0; i < points.length; i++) {
         var x = points[i][0] + posX;
         var y = points[i][1] + posY;
+        while (x < 0)
+            x += height;
+        while (x >= height)
+            x -= height;
+        while (y < 0)
+            y += width;
+        while (y >= width)
+            y -= width;
         state[x * width + y] = 1;
         document.getElementById("tr" + x + "td" + y).setAttribute('class', 'gray');
     }
@@ -100,10 +108,6 @@ function clickFunc(i, j) {
     else {
         inverse(i, j);
     }
-}
-
-function initGrid(pattern) {
-    placePattern(10, 10, pattern);
 }
 
 function isAlive(i, j) {
@@ -183,6 +187,7 @@ function patternRegister(name, RLE) {
     var name_ = name.replace('_', ' ');
     patternList.push([name, name_]);
 }
+patternRegister('random', "");
 patternRegister('Gosper_glider_gun', "24bo11b$22bobo11b$12b2o6b2o12b2o$11bo3bo4b2o12b2o$2o8bo5bo3b2o14b$2o8bo3bob2o4bobo11b$10bo5bo7bo11b$11bo3bo20b$12b2o!");
 patternRegister("New_gun_1", "25b2o5b2o$25b2o5b2o12$27b2ob2o2b$26bo5bob2$25bo7bo$25bo2bobo2bo$25b3o3b3o5$17bo16b$2o15b2o15b$2o16b2o14b$13b2o2b2o15b4$13b2o2b2o15b$2o16b2o7b2o5b$2o15b2o8b2o5b$17bo!");
 patternRegister("New_gun_2", "23b2o24b2o$23b2o24b2o$41b2o8b$40bo2bo7b$41b2o8b2$36b3o12b$36bobo12b$9b2o25b3o12b$9b2o25b2o13b$8bo2bo23b3o13b$8bo2bob2o20bobo13b$8bo4b2o20b3o13b$10b2ob2o36b$31b2o18b$21b2o7bo2bo17b$21b2o8b2o18b$49b2o$49b2o2$4b2o18bo26b$2o4b4o10b2o2b2ob3o21b$2o2b2ob3o10b2o4b4o21b$4bo19b2o!");
