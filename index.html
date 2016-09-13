@@ -12,10 +12,10 @@
     <table id="grid">
         <tbody>
         <script>
-            for (var i = 0; i < height; i++) {
+            for (var i = 0; i < gol.height; i++) {
                 document.write("<tr>\n");
-                for (var j = 0; j < width; j++) {
-                    document.write("<td id='tr" + i + "td" + j + "' class='white' onclick=clickFunc(" + i + "," + j + ")></td>\n");
+                for (var j = 0; j < gol.width; j++) {
+                    document.write("<td id='tr" + i + "td" + j + "' class='white' onclick=gol.click(" + i + "," + j + ")></td>\n");
                 }
                 document.write("</tr>\n");
             }
@@ -27,36 +27,36 @@
             <form>
                 <select id="pattern">
                     <script>
-                        for (var i = 0; i < patternList.length; i++)
-                            document.write('<option value="' + patternList[i][0] + '">' + patternList[i][1] + '</option>');
+                        for (var i = 0; i < gol.patternList.length; i++)
+                            document.write('<option value="' + gol.patternList[i][0] + '">' + gol.patternList[i][1] + '</option>');
                     </script>
                 </select>
             </form>
         </div>
         <div id="place" class="button">
             <a href="javascript:void(0);">
-                <p id="mode" onclick="switchPlaceMode()">
+                <p id="mode" onclick="gol.switchPlaceMode()">
                     place mode
                 </p>
             </a>
         </div>
         <div id="start" class="button">
             <a href="javascript:void(0);">
-                <p onclick="start()">
+                <p onclick="gol.start()">
                     start
                 </p>
             </a>
         </div>
         <div id="stop" class="button">
             <a href="javascript:void(0);">
-                <p onclick="stop()">
+                <p onclick="gol.stop()">
                     stop
                 </p>
             </a>
         </div>
         <div id="clear" class="button">
             <a href="javascript:void(0);">
-                <p onclick="clear()">
+                <p onclick="gol.clear()">
                     clear
                 </p>
             </a>
