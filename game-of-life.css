@@ -34,17 +34,17 @@ table#grid {
 #down {
     position: absolute;
     left: 50%;
-    width: 520px;
-    margin-left: -260px;
+    width: 480px;
+    margin-left: -240px;
 }
 
 #down div {
     float: left;
-    margin: 16px 16px;
+    margin: 20px 20px 0 20px;
 }
 
 .button {
-    width: 112px;
+    width: 120px;
 }
 
 .button p {
@@ -72,5 +72,5 @@ table#grid {
     border: 2px solid;
     border-radius: 5px;
     height: 34px;
-    width: 200px;
+    width: 280px;
 }

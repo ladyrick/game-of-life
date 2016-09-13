@@ -1,4 +1,5 @@
 'use strict';
+var gol = {};
 var width = 200;
 var height = 100;
 var state = new Int8Array(width * height);
