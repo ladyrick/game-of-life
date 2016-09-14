@@ -61,6 +61,7 @@ table#grid {
 .button a {
     text-decoration: none;
     color: #0000ee;
+    outline:none;
 }
 
 .button a:hover {
@@ -73,4 +74,5 @@ table#grid {
     border-radius: 5px;
     height: 34px;
     width: 280px;
+    outline:none;
 }
