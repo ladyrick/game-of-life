@@ -19,7 +19,7 @@ table#grid {
 }
 
 #grid {
-    border: solid 2px #5b5b5b;
+    border: solid 2px #3e3d39;
     margin: 0 auto;
 }
 
@@ -32,6 +32,8 @@ table#grid {
 }
 
 #down {
+    font: 14px Arial;
+    color: #000;
     position: absolute;
     left: 50%;
     width: 480px;
@@ -48,10 +50,9 @@ table#grid {
 }
 
 .button p {
-    font-size: 14px;
     border: 2px solid;
     border-radius: 5px;
-    background-color: beige;
+    background-color: #FFE;
     text-align: center;
     line-height: 30px;
     overflow: hidden;
@@ -59,20 +60,32 @@ table#grid {
 }
 
 .button a {
+    color: #000;
     text-decoration: none;
-    color: #0000ee;
-    outline:none;
+    outline: none;
 }
 
 .button a:hover {
     color: #ff6600;
 }
 
-#down .selector select {
-    font-size: 14px;
+.selector select {
+    background-color: #FFE;
+    font: 14px Arial;
+    color: #000;
     border: 2px solid;
     border-radius: 5px;
     height: 34px;
     width: 280px;
-    outline:none;
+    outline: none;
+}
+
+.checkbox {
+    width: 120px;
+}
+
+.checkbox p {
+    width: auto;
+    line-height: 16px;
+    margin: 0;
 }

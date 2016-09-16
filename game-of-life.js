@@ -5,6 +5,7 @@ gol.height = 160;
 gol.state = new Int8Array(gol.width * gol.height);
 gol.prepareToChange = new Int8Array(gol.width * gol.height);
 gol.placeMode = false;
+gol.boundaryLoop = false;
 gol.patternList = [];
 gol.intervalList = [];
 
@@ -102,7 +103,7 @@ gol.placePattern = function (posX, posY, pattern) {
 };
 
 gol.click = function (i, j) {
-    if (gol.placeMode) {
+    if (document.getElementById("place_mode").checked) {
         var patternName = document.getElementById("pattern").value;
         gol.placePattern(i, j, gol[patternName]);
     }
@@ -112,17 +113,17 @@ gol.click = function (i, j) {
 };
 
 gol.isAlive = function (i, j) {
-    // {
-    //     while (i < 0)
-    //         i += gol.height;
-    //     while (i >= gol.height)
-    //         i -= gol.height;
-    //     while (j < 0)
-    //         j += gol.width;
-    //     while (j >= gol.width)
-    //         j -= gol.width;
-    // }
-    {
+    if (gol.boundaryLoop) {
+        while (i < 0)
+            i += gol.height;
+        while (i >= gol.height)
+            i -= gol.height;
+        while (j < 0)
+            j += gol.width;
+        while (j >= gol.width)
+            j -= gol.width;
+    }
+    else {
         if (i < 0)
             return false;
         if (i >= gol.height)
@@ -202,22 +203,10 @@ gol.clear = function () {
             }
 };
 
-gol.switchPlaceMode = function () {
-    if (!gol.placeMode) {
-        gol.placeMode = true;
-        document.getElementById("mode").style.color = "#f60";
-        document.getElementById("mode").innerText = "place mode on";
-    }
-    else {
-        gol.placeMode = false;
-        document.getElementById("mode").style.color = "";
-        document.getElementById("mode").innerText = "place mode off";
-    }
-};
-
 gol.patternRegister = function (name, RLE) {
-    if (gol.hasOwnProperty(name))
+    if (gol.hasOwnProperty(name)) {
         return;
+    }
     gol[name] = RLE;
     gol.patternList.push(name);
 };
