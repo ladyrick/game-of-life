@@ -33,12 +33,11 @@
                 </select>
             </form>
         </div>
-        <div id="place" class="button">
-            <a href="javascript:void(0);">
-                <p id="mode" onclick="gol.switchPlaceMode()">
-                    place mode
-                </p>
-            </a>
+        <div id="place" class="checkbox">
+            <form>
+                <p><input type="checkbox" id="place_mode" onchange="gol.placeMode = this.checked">place mode</p>
+                <p><input type="checkbox" id="boundary_loop" onchange="gol.boundaryLoop = this.checked">boundary loop</p>
+            </form>
         </div>
         <div id="start" class="button">
             <a href="javascript:void(0);">
